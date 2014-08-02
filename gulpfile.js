@@ -96,7 +96,7 @@ gulp.task('images', ['clean'], function(cb) {
 
 
 gulp.task('template', ['clean'], function() {
-  gulp.src('./src/index.jade')
+  return gulp.src('./src/index.jade')
     .pipe(jade({
       pretty: true,
       locals: {
