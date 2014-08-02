@@ -1,0 +1,39 @@
+doctype html
+html(lang="en")
+  head
+    title Test for image-set css function
+    style.
+      #test {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: #{originalWidth}px;
+        height: #{originalHeight}px;
+        /* fallback */
+        background-image: url(/#{imgDir}/#{notSupportedImgSet});
+        /* test */
+        #{cssString}
+      }
+  body
+    h1 Test for "image-set" css function
+    h2 Test
+
+    hr
+    #test
+    hr
+
+    h2 Possible images
+
+    ul
+      li
+        h3 No image-set support
+        h4=notSupportedImgSet
+        img(src="/" + imgDir + "/" + notSupportedImgSet)
+
+      each func, vendor in vendors
+        li
+          h3= vendor + '  "' + func + '"'
+          each scale in scales
+            - image = vendor+'@'+scale+'x.png';
+            h4= image
+            img(src="/" + imgDir + "/" + image, alt=image)
+

@@ -1,0 +1,37 @@
+{
+  "name": "test-image-set",
+  "version": "1.0.0",
+  "description": "Test for image-set css function",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mahnunchik/test-image-set.git"
+  },
+  "keywords": [
+    "css",
+    "image-set"
+  ],
+  "author": {
+    "name": "Eugeny Vlasenko",
+    "email": "mahnunchik@gmail.com",
+    "url": "http://mahnunchik.tumblr.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mahnunchik/test-image-set/issues"
+  },
+  "homepage": "https://github.com/mahnunchik/test-image-set",
+  "devDependencies": {
+    "async": "^0.9.0",
+    "connect": "^3.1.0",
+    "del": "^0.1.1",
+    "gm": "^1.16.0",
+    "gulp": "^3.8.7",
+    "gulp-jade": "^0.7.0",
+    "gulp-jshint": "^1.8.3",
+    "serve-static": "^1.4.3"
+  }
+}
