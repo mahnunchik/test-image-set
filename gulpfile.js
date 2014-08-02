@@ -3,9 +3,14 @@ var gulp = require('gulp');
 
 var jade = require('gulp-jade');
 var jshint = require('gulp-jshint');
+var deploy = require('gulp-gh-pages');
+
 var gm = require('gm');
 var del = require('del');
 var async = require('async');
+var connect = require('connect');
+var serveStatic = require('serve-static');
+var mkdirp = require('mkdirp');
 
 
 var vendors = {
@@ -33,7 +38,7 @@ function createImage (name, color, scale, cb) {
     .fontSize(16)
     .drawText(16, height/3, name)
     .drawText(16, 3*height/4, 'width: ' + width +'px height: '+ height + 'px')
-    .write(imgDir + '/' + name, cb);
+    .write('./build/' + imgDir + '/' + name, cb);
 }
 
 /*
@@ -73,6 +78,8 @@ function generateCssTest () {
 
 
 gulp.task('images', ['clean'], function(cb) {
+  mkdirp.sync('./build/images/');
+
   async.parallel([
     function (cb) {
       async.each(Object.keys(vendors), function (vendor, cb){
@@ -102,7 +109,7 @@ gulp.task('template', ['clean'], function() {
         imgDir: imgDir
       }
     }))
-    .pipe(gulp.dest('./'));
+    .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('lint', function() {
@@ -112,10 +119,8 @@ gulp.task('lint', function() {
 });
 
 gulp.task('connect', function () {
-  var connect = require('connect');
-  var serveStatic = require('serve-static');
   var app = connect()
-    .use(serveStatic('./'));
+    .use(serveStatic('./build/'));
 
   require('http').createServer(app)
     .listen(8080)
@@ -124,9 +129,14 @@ gulp.task('connect', function () {
     });
 });
 
+gulp.task('deploy', function () {
+  gulp.src('./build/**/*')
+    .pipe(deploy());
+});
+
 
 gulp.task('clean', function(cb) {
-  del([imgDir + '/*', 'index.html'], cb);
+  del(['build'], cb);
 });
 
 gulp.task('default', ['lint', 'images', 'template']);
