@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Test for image-set css function</title>
+    <style>
+      #test {
+        margin-top: 50px;
+        margin-bottom: 50px;
+        width: 240px;
+        height: 60px;
+        /* fallback */
+        background-image: url(./images/not-supported.png);
+        /* test */
+        
+background-image: -webkit-image-set(
+url(./images/webkit@1x.png) 1x,
+url(./images/webkit@2x.png) 2x,
+url(./images/webkit@3x.png) 3x);
+background-image: -moz-image-set(
+url(./images/mozila@1x.png) 1x,
+url(./images/mozila@2x.png) 2x,
+url(./images/mozila@3x.png) 3x);
+background-image: -o-image-set(
+url(./images/opera@1x.png) 1x,
+url(./images/opera@2x.png) 2x,
+url(./images/opera@3x.png) 3x);
+background-image: -ms-image-set(
+url(./images/ie@1x.png) 1x,
+url(./images/ie@2x.png) 2x,
+url(./images/ie@3x.png) 3x);
+background-image: image-set(
+url(./images/w3c@1x.png) 1x,
+url(./images/w3c@2x.png) 2x,
+url(./images/w3c@3x.png) 3x);
+
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Test for "image-set" css function</h1>
+    <ul>
+      <li><a href="http://dev.w3.org/csswg/css-images/#image-set-notation" target="_blank">Specification</a></li>
+      <li><a href="http://cloudfour.com/examples/image-set/" target="_blank">Another test</a></li>
+      <li><a href="https://github.com/mahnunchik/test-image-set">This repository on GitHub</a></li>
+    </ul>
+    <h2>Test</h2>
+    <p>Element width: 240px</p>
+    <p>Element height: 60px</p>
+    <hr>
+    <div id="test"></div>
+    <hr>
+    <h2>Possible images</h2>
+    <ul>
+      <li>
+        <h3>No image-set support</h3>
+        <h4>not-supported.png</h4><img src="./images/not-supported.png">
+      </li>
+      <li>
+        <h3>webkit  &quot;-webkit-image-set&quot;</h3>
+        <h4>webkit@1x.png</h4><img src="./images/webkit@1x.png" alt="webkit@1x.png">
+        <h4>webkit@2x.png</h4><img src="./images/webkit@2x.png" alt="webkit@2x.png">
+        <h4>webkit@3x.png</h4><img src="./images/webkit@3x.png" alt="webkit@3x.png">
+      </li>
+      <li>
+        <h3>mozila  &quot;-moz-image-set&quot;</h3>
+        <h4>mozila@1x.png</h4><img src="./images/mozila@1x.png" alt="mozila@1x.png">
+        <h4>mozila@2x.png</h4><img src="./images/mozila@2x.png" alt="mozila@2x.png">
+        <h4>mozila@3x.png</h4><img src="./images/mozila@3x.png" alt="mozila@3x.png">
+      </li>
+      <li>
+        <h3>opera  &quot;-o-image-set&quot;</h3>
+        <h4>opera@1x.png</h4><img src="./images/opera@1x.png" alt="opera@1x.png">
+        <h4>opera@2x.png</h4><img src="./images/opera@2x.png" alt="opera@2x.png">
+        <h4>opera@3x.png</h4><img src="./images/opera@3x.png" alt="opera@3x.png">
+      </li>
+      <li>
+        <h3>ie  &quot;-ms-image-set&quot;</h3>
+        <h4>ie@1x.png</h4><img src="./images/ie@1x.png" alt="ie@1x.png">
+        <h4>ie@2x.png</h4><img src="./images/ie@2x.png" alt="ie@2x.png">
+        <h4>ie@3x.png</h4><img src="./images/ie@3x.png" alt="ie@3x.png">
+      </li>
+      <li>
+        <h3>w3c  &quot;image-set&quot;</h3>
+        <h4>w3c@1x.png</h4><img src="./images/w3c@1x.png" alt="w3c@1x.png">
+        <h4>w3c@2x.png</h4><img src="./images/w3c@2x.png" alt="w3c@2x.png">
+        <h4>w3c@3x.png</h4><img src="./images/w3c@3x.png" alt="w3c@3x.png">
+      </li>
+    </ul>
+  </body>
+  <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    ga('create', 'UA-31614626-3', 'auto');
+    ga('send', 'pageview');
+  </script>
+</html>
