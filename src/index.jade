@@ -9,7 +9,7 @@ html(lang="en")
         width: #{originalWidth}px;
         height: #{originalHeight}px;
         /* fallback */
-        background-image: url(/#{imgDir}/#{notSupportedImgSet});
+        background-image: url(./#{imgDir}/#{notSupportedImgSet});
         /* test */
         #{cssString}
       }
@@ -27,7 +27,7 @@ html(lang="en")
       li
         h3 No image-set support
         h4=notSupportedImgSet
-        img(src="/" + imgDir + "/" + notSupportedImgSet)
+        img(src="./" + imgDir + "/" + notSupportedImgSet)
 
       each func, vendor in vendors
         li
@@ -35,5 +35,5 @@ html(lang="en")
           each scale in scales
             - image = vendor+'@'+scale+'x.png';
             h4= image
-            img(src="/" + imgDir + "/" + image, alt=image)
+            img(src="./" + imgDir + "/" + image, alt=image)
 
